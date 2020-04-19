@@ -1,0 +1,33 @@
+import os 
+import csv
+
+election_data_csv = os.path.join('election_data.csv')
+
+total_count = 0
+candidates_names = []
+candidates_votes = {}
+winner = ""
+winner_votes = 0 
+
+with open(election_data_csv, 'r') as f:
+    election_csv = csv.reader(f)
+    next(election_csv)
+
+    for row in election_csv:
+        candidate_name = row[2]
+        total_count = total_count + 1
+        
+        if candidate_name not in candidates_names:
+            candidates_names.append(candidate_name)
+            candidates_votes[candidate_name] = 0 
+    candidates_votes[candidate_name] = candidates_votes[candidate_name] + 1
+    
+    print(max(candidates_votes))
+    
+  
+print("Election Results")
+print("---------------------")
+print(f"Total Votes:{total_count}")
+print("----------------------------")
+print(f"{candidates_votes[0]},{candidates_votes[1]},{candidates_votes[")
+print(f"{candidates_names}")
