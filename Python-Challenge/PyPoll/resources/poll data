@@ -20,12 +20,11 @@ with open(election_data_csv, 'r') as f:
         if candidate_name not in candidates_names:
             candidates_names.append(candidate_name)
             candidates_votes[candidate_name] = 0 
-            
     candidates_votes[candidate_name] = candidates_votes[candidate_name] + 1
-    for count in candidates_votes:
     
-
-
+    print(max(candidates_votes))
+    
+  
 print("Election Results")
 print("---------------------")
 print(f"Total Votes:{total_count}")
